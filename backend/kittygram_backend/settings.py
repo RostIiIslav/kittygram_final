@@ -1,12 +1,13 @@
 # flake8: noqa
 import os
+from distutils.util import strtobool
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', "&6jHd7i9&90ud2!-UIJEFUFjjifwefhwfidq#$")
 
-DEBUG = os.getenv('DEBUG', False)
+DEBUG =  bool(strtobool(os.getenv('DEBUG', 'False')))
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
